@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "_comment": "Default opencode config for the self-hosted server deployment. Safe to edit; opencode.json persists across image updates because it lives on the opencode-config volume.",
+  "model": "nvidia/glm-5.2",
+  "small_model": "nvidia/glm-5.2",
+  "username": "opencode",
+  "share": "disabled",
+  "autoupdate": false,
+  "snapshot": true,
+  "server": {
+    "hostname": "0.0.0.0",
+    "port": 4096,
+    "mdns": false,
+    "cors": []
+  }
+}

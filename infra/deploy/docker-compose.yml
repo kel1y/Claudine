@@ -1,0 +1,81 @@
+# OpenCode self-hosted deployment.
+#
+# Two services:
+#   - opencode: the headless agent server (HTTP API + embedded web UI on :4096)
+#   - caddy:     terminates TLS (auto Let's Encrypt) and reverse-proxies to opencode
+#
+# State is durably stored on named volumes:
+#   - opencode-data:  ~/.local/share/opencode (sessions, sqlite, auth.json, caches)
+#   - opencode-config: ~/.config/opencode     (opencode.json, agents, skills)
+#   - opencode-workspace: /workspace          (your checked-out repos / working dir)
+#
+# Bring up:
+#   cp .env.example .env  &&  edit .env  &&  ./deploy.sh
+# (or directly: docker compose up -d --build)
+
+name: opencode
+
+services:
+  opencode:
+    build:
+      context: ..
+      dockerfile: infra/deploy/Dockerfile
+    image: opencode:local
+    container_name: opencode
+    restart: unless-stopped
+    environment:
+      PORT: "4096"
+      OPENCODE_SERVER_PASSWORD: ${OPENCODE_SERVER_PASSWORD:?OPENCODE_SERVER_PASSWORD must be set in .env}
+      OPENCODE_SERVER_USERNAME: ${OPENCODE_SERVER_USERNAME:-opencode}
+      OPENCODE_LOG_LEVEL: ${OPENCODE_LOG_LEVEL:-INFO}
+      NVIDIA_API_KEY: ${NVIDIA_API_KEY:-}
+      OPENCODE_REMOTE: ${OPENCODE_REMOTE:-}
+      GIT_AUTHOR_NAME: ${GIT_AUTHOR_NAME:-opencode}
+      GIT_AUTHOR_EMAIL: ${GIT_AUTHOR_EMAIL:-opencode@localhost}
+      GIT_COMMITTER_NAME: ${GIT_COMMITTER_NAME:-opencode}
+      GIT_COMMITTER_EMAIL: ${GIT_COMMITTER_EMAIL:-opencode@localhost}
+    volumes:
+      - opencode-data:/home/opencode/.local/share/opencode
+      - opencode-config:/home/opencode/.config/opencode
+      - opencode-workspace:/workspace
+    expose:
+      - "4096"
+    networks:
+      - opencode-net
+    healthcheck:
+      test: ["CMD", "opencode", "api", "--url", "http://127.0.0.1:4096", "session", "list"]
+      interval: 30s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: opencode-caddy
+    restart: unless-stopped
+    depends_on:
+      - opencode
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    environment:
+      OPENCODE_DOMAIN: ${OPENCODE_DOMAIN:?OPENCODE_DOMAIN must be set in .env}
+      OPENCODE_SERVER_PASSWORD: ${OPENCODE_SERVER_PASSWORD:?}
+      OPENCODE_SERVER_USERNAME: ${OPENCODE_SERVER_USERNAME:-opencode}
+    networks:
+      - opencode-net
+
+volumes:
+  opencode-data:
+  opencode-config:
+  opencode-workspace:
+  caddy-data:
+  caddy-config:
+
+networks:
+  opencode-net:
+    driver: bridge

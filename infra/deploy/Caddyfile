@@ -1,0 +1,41 @@
+# Caddyfile for OpenCode self-hosted deployment.
+#
+# Caddy automatically obtains and renews a Let's Encrypt certificate for
+# {$OPENCODE_DOMAIN}, terminates TLS, and reverse-proxies to the opencode
+# container. The opencode backend enforces its own HTTP Basic auth using
+# {$OPENCODE_SERVER_USERNAME}:{$OPENCODE_SERVER_PASSWORD}; the browser natively
+# handles the Basic auth challenge, so the user sees the standard OS password
+# prompt and Caddy just passes bytes through.
+
+{
+  email {$OPENCODE_DOMAIN_EMAIL:opencode@localhost}
+  admin off
+}
+
+{$OPENCODE_DOMAIN} {
+  encode zstd gzip
+
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Referrer-Policy "no-referrer"
+    X-Content-Type-Options "nosniff"
+    -Server
+  }
+
+  # Transparent reverse proxy. opencode enforces Basic auth itself, so Caddy
+  # forwards the browser's Authorization header unchanged. WebSocket support is
+  # automatic for reverse_proxy (no extra directive needed).
+  reverse_proxy opencode:4096 {
+    header_up Host {host}
+    header_up X-Real-IP {remote_host}
+    header_up X-Forwarded-For {remote_host}
+    header_up X-Forwarded-Proto {scheme}
+    flush_interval -1
+  }
+
+  log {
+    output stdout
+    format console
+    level INFO
+  }
+}

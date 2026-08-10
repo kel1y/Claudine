@@ -1,0 +1,38 @@
+# Optional, disabled-by-default auto-deploy for OpenCode self-hosted.
+#
+# ENABLE IT:
+#   1. In your GitHub repo, add Actions secrets:
+#        OPENCODE_SSH_HOST   - e.g. opencode.example.com (or VPS IP)
+#        OPENCODE_SSH_USER   - e.g. deploy (the non-root user on the VPS)
+#        OPENCODE_SSH_KEY    - the PRIVATE key, with a trailing newline
+#   2. Uncomment the `on:` block below so the workflow triggers.
+#   3. Push to `dev`. The action will ssh in, pull, and run update.sh.
+#
+# Keep it disabled (commented trigger) by default so nothing auto-deploys until you
+# explicitly opt in.
+
+name: deploy
+
+on:
+  # push:
+  #   branches: [dev]
+  # workflow_dispatch:
+
+concurrency: deploy-${{ github.ref }}
+
+jobs:
+  deploy:
+    if: github.repository != 'anomalyco/opencode'   # safety guard: never run on the upstream repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install ssh-agent and key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.OPENCODE_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "${{ secrets.OPENCODE_SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Pull latest and roll the stack
+        run: |
+          ssh -o StrictHostKeyChecking=accept-new "${{ secrets.OPENCODE_SSH_USER }}@${{ secrets.OPENCODE_SSH_HOST }}" \
+            "cd ~/opencode-dev && git pull --ff-only && cd infra/deploy && ./update.sh"
