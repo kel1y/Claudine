@@ -83,7 +83,7 @@ docker volume create "$DATA_VOLUME" >/dev/null 2>&1 || true
 # never touch it — your config survives `update.sh` and image rebuilds.
 if ! docker run --rm -v "$CONFIG_VOLUME:/cfg" alpine sh -c '[ -f /cfg/opencode.json ]' 2>/dev/null; then
   bold "==> Seeding default opencode.json into config volume (first run only)"
-  docker run --rm -v "$CONFIG_VOLUME:/cfg" -v "$(pwd)/$CONFIG_SEED:/seed:ro" alpine \
+  docker run --rm -v "$CONFIG_VOLUME:/cfg" -v "$(pwd)/$CONFIG_SEED:/seed/opencode.json:ro" alpine \
     sh -c 'cp /seed/opencode.json /cfg/opencode.json && chmod 0644 /cfg/opencode.json'
 else
   grn "==> Existing opencode.json found in volume — leaving it untouched"

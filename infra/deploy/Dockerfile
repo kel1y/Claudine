@@ -43,7 +43,8 @@ RUN bun run --cwd packages/app build
 # Compile the standalone opencode binary for this host arch/abi. `--single`
 # builds only the current platform; on Alpine that yields a musl binary.
 WORKDIR /repo/packages/opencode
-RUN bun run build -- --single --skip-install
+RUN mkdir -p /repo/.github && touch /repo/.github/TEAM_MEMBERS
+RUN OPENCODE_CHANNEL=stable bun run build -- --single --skip-install
 
 # --------------------------------------------------------------------------- #
 # Runtime: slim Alpine + the compiled binary + ripgrep for grep tool.        #

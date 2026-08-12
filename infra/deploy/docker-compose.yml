@@ -18,7 +18,7 @@ name: opencode
 services:
   opencode:
     build:
-      context: ..
+      context: ../..
       dockerfile: infra/deploy/Dockerfile
     image: opencode:local
     container_name: opencode
@@ -27,6 +27,7 @@ services:
       PORT: "4096"
       OPENCODE_SERVER_PASSWORD: ${OPENCODE_SERVER_PASSWORD:?OPENCODE_SERVER_PASSWORD must be set in .env}
       OPENCODE_SERVER_USERNAME: ${OPENCODE_SERVER_USERNAME:-opencode}
+      OPENCODE_DOMAIN_EMAIL: ${OPENCODE_DOMAIN_EMAIL:-}
       OPENCODE_LOG_LEVEL: ${OPENCODE_LOG_LEVEL:-INFO}
       NVIDIA_API_KEY: ${NVIDIA_API_KEY:-}
       OPENCODE_REMOTE: ${OPENCODE_REMOTE:-}
@@ -66,6 +67,7 @@ services:
       OPENCODE_DOMAIN: ${OPENCODE_DOMAIN:?OPENCODE_DOMAIN must be set in .env}
       OPENCODE_SERVER_PASSWORD: ${OPENCODE_SERVER_PASSWORD:?}
       OPENCODE_SERVER_USERNAME: ${OPENCODE_SERVER_USERNAME:-opencode}
+      OPENCODE_DOMAIN_EMAIL: ${OPENCODE_DOMAIN_EMAIL:-}
     networks:
       - opencode-net
 
