@@ -16,7 +16,7 @@
 
 set -euo pipefail
 
-cd "$(dirname "${BASH_SOURCE[0]}")/.."  # repo root
+cd "$(dirname "${BASH_SOURCE[0]}")/../.."  # repo root
 
 REF="${1:-}"
 
