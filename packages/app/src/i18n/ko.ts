@@ -911,7 +911,7 @@ export const dict = {
   "wsl.server.retryStart": "시작 재시도",
   "wsl.server.updating": "업데이트 중...",
   "wsl.onboarding.step.distro": "배포판 선택",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSL 확인 중...",
   "wsl.onboarding.restartRequired": "WSL 설치를 완료하려면 Windows를 다시 시작해야 합니다.",
   "wsl.onboarding.ready": "WSL이 준비되었습니다.",
@@ -1067,7 +1067,7 @@ export const dict = {
   "help.tabs.worktrees":
     "새 디자인은 아직 Git Worktrees를 지원하지 않지만 곧 지원할 예정입니다. 이전 레이아웃을 계속 사용하려면 설정에서 레이아웃을 전환할 수 있습니다. 단, 몇 주 후에는 새 레이아웃이 영구 적용됩니다.",
 
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "파일",
   "desktop.menu.edit": "편집",
   "desktop.menu.view": "보기",

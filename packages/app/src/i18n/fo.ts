@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Skrá",
   "desktop.menu.edit": "Rætta",
   "desktop.menu.view": "Vís",
@@ -446,7 +446,7 @@ export const dict = {
   "wsl.server.retryStart": "Royn aftur at byrja",
   "wsl.server.updating": "Dagføring...",
   "wsl.onboarding.step.distro": "Vel distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Kanna WSL...",
   "wsl.onboarding.restartRequired": "Windows hevur brúk fyri endurbyrjan fyri at klára at seta upp WSL.",
   "wsl.onboarding.ready": "WSL er klárt.",

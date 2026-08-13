@@ -374,7 +374,7 @@ export const dict = {
   "wsl.server.retryStart": "Prøv at starte igen",
   "wsl.server.updating": "Opdaterer...",
   "wsl.onboarding.step.distro": "Vælg distribution",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Tjekker WSL...",
   "wsl.onboarding.restartRequired": "Windows skal genstartes for at fuldføre installationen af WSL.",
   "wsl.onboarding.ready": "WSL er klar.",
@@ -1129,7 +1129,7 @@ export const dict = {
   "error.childStore.storeCreateFailed": "Kunne ikke oprette lager",
   "terminal.connectionLost.abnormalClose": "WebSocket lukkede unormalt: {{code}}",
 
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Arkiv",
   "desktop.menu.edit": "Rediger",
   "desktop.menu.view": "Oversigt",

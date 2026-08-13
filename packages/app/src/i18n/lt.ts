@@ -1,7 +1,7 @@
 import { DESKTOP_NATIVE_KEYS } from "./desktop-native"
 
 const desktop = [
-  "OpenCode",
+  "Incode",
   "Failas",
   "Taisa",
   "Rodymas",
@@ -452,7 +452,7 @@ export const dict = {
   "wsl.server.retryStart": "Pabandykite pradėti iš naujo",
   "wsl.server.updating": "Atnaujinama...",
   "wsl.onboarding.step.distro": "Pasirinkite distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Tikrinama WSL...",
   "wsl.onboarding.restartRequired": "Windows reikia paleisti iš naujo, kad būtų baigtas WSL diegimas.",
   "wsl.onboarding.ready": "WSL yra paruoštas.",

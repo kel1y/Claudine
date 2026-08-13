@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Tệp",
   "desktop.menu.edit": "Chỉnh sửa",
   "desktop.menu.view": "Xem",
@@ -454,7 +454,7 @@ export const dict = {
   "wsl.server.retryStart": "Thử khởi động lại",
   "wsl.server.updating": "Đang cập nhật...",
   "wsl.onboarding.step.distro": "Chọn bản phân phối",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Đang kiểm tra WSL...",
   "wsl.onboarding.restartRequired": "Windows cần khởi động lại để hoàn tất cài đặt WSL.",
   "wsl.onboarding.ready": "WSL đã sẵn sàng.",

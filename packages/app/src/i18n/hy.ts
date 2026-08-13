@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Ֆայլ",
   "desktop.menu.edit": "Խմբագրել",
   "desktop.menu.view": "Դիտել",
@@ -449,7 +449,7 @@ export const dict = {
   "wsl.server.retryStart": "Փորձեք նորից սկսել",
   "wsl.server.updating": "Թարմացվում է...",
   "wsl.onboarding.step.distro": "Ընտրեք բաշխում",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Ստուգում է WSL...",
   "wsl.onboarding.restartRequired": "Windows-ին անհրաժեշտ է վերագործարկում՝ WSL-ի տեղադրումն ավարտելու համար։",
   "wsl.onboarding.ready": "WSL պատրաստ է։",

@@ -3,7 +3,7 @@ import { dict as en } from "./en"
 type Keys = keyof typeof en
 
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "文件",
   "desktop.menu.edit": "编辑",
   "desktop.menu.view": "视图",
@@ -492,7 +492,7 @@ export const dict = {
   "wsl.server.retryStart": "重试启动",
   "wsl.server.updating": "正在更新...",
   "wsl.onboarding.step.distro": "选择发行版",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "正在检查 WSL...",
   "wsl.onboarding.restartRequired": "Windows 需要重启才能完成 WSL 安装。",
   "wsl.onboarding.ready": "WSL 已就绪。",

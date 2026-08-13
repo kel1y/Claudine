@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Fail",
   "desktop.menu.edit": "Muuda",
   "desktop.menu.view": "Vaade",
@@ -446,7 +446,7 @@ export const dict = {
   "wsl.server.retryStart": "Proovi uuesti alustada",
   "wsl.server.updating": "Värskendamine...",
   "wsl.onboarding.step.distro": "Valige distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSL kontrollimine...",
   "wsl.onboarding.restartRequired": "Windows vajab installimise WSL lõpetamiseks taaskäivitamist.",
   "wsl.onboarding.ready": "WSL on valmis.",

@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "ဖိုင်",
   "desktop.menu.edit": "တည်းဖြတ်ပါ။",
   "desktop.menu.view": "ကြည့်ရန်",
@@ -451,7 +451,7 @@ export const dict = {
   "wsl.server.retryStart": "ပြန်လည်စတင်ကြည့်ပါ။",
   "wsl.server.updating": "အပ်ဒိတ်လုပ်နေသည်...",
   "wsl.onboarding.step.distro": "distro ကို ရွေးပါ။",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSL ကို စစ်ဆေးနေသည်...",
   "wsl.onboarding.restartRequired": "WSL ထည့်သွင်းခြင်းကို အပြီးသတ်ရန် Windows ကို ပြန်လည်စတင်ရန် လိုအပ်သည်။",
   "wsl.onboarding.ready": "WSL အဆင်သင့်ဖြစ်ပါပြီ။",

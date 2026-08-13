@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "ឯកសារ",
   "desktop.menu.edit": "កែសម្រួល",
   "desktop.menu.view": "មើល",
@@ -446,7 +446,7 @@ export const dict = {
   "wsl.server.retryStart": "ព្យាយាមចាប់ផ្តើមឡើងវិញ",
   "wsl.server.updating": "កំពុងអាប់ដេត...",
   "wsl.onboarding.step.distro": "ជ្រើសរើស distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "កំពុងពិនិត្យ WSL...",
   "wsl.onboarding.restartRequired": "វីនដូត្រូវការការចាប់ផ្តើមឡើងវិញដើម្បីបញ្ចប់ការដំឡើង WSL ។",
   "wsl.onboarding.ready": "WSL រួចរាល់ហើយ។",

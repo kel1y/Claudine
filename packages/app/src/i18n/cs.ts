@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Soubor",
   "desktop.menu.edit": "Upravit",
   "desktop.menu.view": "Zobrazit",
@@ -447,7 +447,7 @@ export const dict = {
   "wsl.server.retryStart": "Zkuste spustit znovu",
   "wsl.server.updating": "Aktualizace...",
   "wsl.onboarding.step.distro": "Vyberte distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Kontrola WSL...",
   "wsl.onboarding.restartRequired": "Windows vyžaduje restart k dokončení instalace WSL.",
   "wsl.onboarding.ready": "WSL je připraven.",

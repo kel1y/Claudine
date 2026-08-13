@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "ፋይል",
   "desktop.menu.edit": "አርትዕ",
   "desktop.menu.view": "እይታ",
@@ -442,7 +442,7 @@ export const dict = {
   "wsl.server.retryStart": "እንደገና ጀምር",
   "wsl.server.updating": "በማዘመን ላይ...",
   "wsl.onboarding.step.distro": "distro ምረጥ",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "መፈተሽ WSL...",
   "wsl.onboarding.restartRequired": "Windows WSLን መጫኑን ለመጨረስ ዳግም መጀመር ያስፈልገዋል።",
   "wsl.onboarding.ready": "WSL ዝግጁ ነው።",

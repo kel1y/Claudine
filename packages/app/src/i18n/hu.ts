@@ -1,7 +1,7 @@
 import { DESKTOP_NATIVE_KEYS } from "./desktop-native"
 
 const desktop = [
-  "OpenCode",
+  "Incode",
   "Fájl",
   "Szerkesztés",
   "Nézet",
@@ -451,7 +451,7 @@ export const dict = {
   "wsl.server.retryStart": "Próbálja újra az indítást",
   "wsl.server.updating": "Frissítés...",
   "wsl.onboarding.step.distro": "Válasszon disztrót",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSL ellenőrzése...",
   "wsl.onboarding.restartRequired": "A Windows készüléket újra kell indítani a WSL telepítésének befejezéséhez.",
   "wsl.onboarding.ready": "A WSL készen áll.",

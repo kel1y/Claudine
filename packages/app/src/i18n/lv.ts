@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Fails",
   "desktop.menu.edit": "Rediģēt",
   "desktop.menu.view": "Skats",
@@ -447,7 +447,7 @@ export const dict = {
   "wsl.server.retryStart": "Mēģināt vēlreiz",
   "wsl.server.updating": "Atjaunina...",
   "wsl.onboarding.step.distro": "Izvēlieties distribūciju",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Pārbauda WSL...",
   "wsl.onboarding.restartRequired": "Lai pabeigtu WSL instalēšanu, nepieciešama Windows pārstartēšana.",
   "wsl.onboarding.ready": "WSL ir gatavs.",

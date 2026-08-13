@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "ໄຟລ໌",
   "desktop.menu.edit": "ແກ້ໄຂ",
   "desktop.menu.view": "ເບິ່ງ",
@@ -446,7 +446,7 @@ export const dict = {
   "wsl.server.retryStart": "ລອງເລີ່ມໃໝ່",
   "wsl.server.updating": "ກຳລັງອັບເດດ...",
   "wsl.onboarding.step.distro": "ເລືອກ distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "ກຳລັງກວດສອບ WSL...",
   "wsl.onboarding.restartRequired": "Windows ຕ້ອງການຣີສະຕາດເພື່ອສຳເລັດການຕິດຕັ້ງ WSL.",
   "wsl.onboarding.ready": "WSL ພ້ອມແລ້ວ.",

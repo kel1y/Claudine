@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "فائل",
   "desktop.menu.edit": "ترمیم",
   "desktop.menu.view": "دیکھیں",
@@ -456,7 +456,7 @@ export const dict = {
   "wsl.server.retryStart": "دوبارہ شروع کرنے کی کوشش کریں۔",
   "wsl.server.updating": "اپ ڈیٹ ہو رہا ہے...",
   "wsl.onboarding.step.distro": "ڈسٹرو کا انتخاب کریں۔",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSL چیک کیا جا رہا ہے...",
   "wsl.onboarding.restartRequired": "Windows کو WSL انسٹال کرنا مکمل کرنے کے لیے دوبارہ شروع کرنے کی ضرورت ہے۔",
   "wsl.onboarding.ready": "WSL تیار ہے۔",

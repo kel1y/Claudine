@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "ファイル",
   "desktop.menu.edit": "編集",
   "desktop.menu.view": "表示",
@@ -446,7 +446,7 @@ export const dict = {
   "wsl.server.retryStart": "起動を再試行",
   "wsl.server.updating": "更新中...",
   "wsl.onboarding.step.distro": "ディストリビューションを選択",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSLを確認中...",
   "wsl.onboarding.restartRequired": "WSLのインストールを完了するにはWindowsの再起動が必要です。",
   "wsl.onboarding.ready": "WSLの準備ができました。",

@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Fitxer",
   "desktop.menu.edit": "Edita",
   "desktop.menu.view": "Veure",
@@ -449,7 +449,7 @@ export const dict = {
   "wsl.server.retryStart": "Torna a intentar començar",
   "wsl.server.updating": "S'està actualitzant...",
   "wsl.onboarding.step.distro": "Trieu la distribució",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "S'està comprovant WSL...",
   "wsl.onboarding.restartRequired": "Windows necessita un reinici per acabar la instal·lació WSL.",
   "wsl.onboarding.ready": "WSL està llest.",

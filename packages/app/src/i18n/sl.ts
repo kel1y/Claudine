@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Datoteka",
   "desktop.menu.edit": "Uredi",
   "desktop.menu.view": "Pogled",
@@ -446,7 +446,7 @@ export const dict = {
   "wsl.server.retryStart": "Poskusite znova začeti",
   "wsl.server.updating": "Posodabljanje ...",
   "wsl.onboarding.step.distro": "Izberite distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Preverjanje WSL ...",
   "wsl.onboarding.restartRequired": "Windows potrebuje ponovni zagon za dokončanje namestitve WSL.",
   "wsl.onboarding.ready": "WSL je pripravljen.",

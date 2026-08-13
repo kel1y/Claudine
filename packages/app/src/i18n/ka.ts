@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "ფაილი",
   "desktop.menu.edit": "რედაქტირება",
   "desktop.menu.view": "ნახვა",
@@ -447,7 +447,7 @@ export const dict = {
   "wsl.server.retryStart": "სცადეთ ხელახლა დაწყება",
   "wsl.server.updating": "განახლება...",
   "wsl.onboarding.step.distro": "აირჩიე დისტრო",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "შემოწმებულია WSL...",
   "wsl.onboarding.restartRequired": "Windows საჭიროებს გადატვირთვას WSL-ის ინსტალაციის დასასრულებლად.",
   "wsl.onboarding.ready": "WSL მზად არის.",

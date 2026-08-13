@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Fail",
   "desktop.menu.edit": "Sunting",
   "desktop.menu.view": "Paparan",
@@ -447,7 +447,7 @@ export const dict = {
   "wsl.server.retryStart": "Cuba mula semula",
   "wsl.server.updating": "Mengemas kini...",
   "wsl.onboarding.step.distro": "Pilih distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Memeriksa WSL...",
   "wsl.onboarding.restartRequired": "Windows perlu dimulakan semula untuk melengkapkan pemasangan WSL.",
   "wsl.onboarding.ready": "WSL sedia digunakan.",

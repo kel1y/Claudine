@@ -1,5 +1,5 @@
 export const dict: Record<string, string> = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "फाइल",
   "desktop.menu.edit": "सम्पादन गर्नुहोस्",
   "desktop.menu.view": "हेर्नुहोस्",
@@ -448,7 +448,7 @@ export const dict: Record<string, string> = {
   "wsl.server.retryStart": "पुन: प्रयास सुरु गर्नुहोस्",
   "wsl.server.updating": "अद्यावधिक गर्दै...",
   "wsl.onboarding.step.distro": "डिस्ट्रो छान्नुहोस्",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSL जाँच गर्दै...",
   "wsl.onboarding.restartRequired": "WSL स्थापना पूरा गर्न Windows लाई पुन: सुरु गर्न आवश्यक छ।",
   "wsl.onboarding.ready": "WSL तयार छ।",

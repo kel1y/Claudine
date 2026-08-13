@@ -1,7 +1,7 @@
 import { DESKTOP_NATIVE_KEYS } from "./desktop-native"
 
 const desktop = [
-  "OpenCode",
+  "Incode",
   "Skrá",
   "Breyta",
   "Skoða",
@@ -451,7 +451,7 @@ export const dict = {
   "wsl.server.retryStart": "Reyndu að byrja aftur",
   "wsl.server.updating": "Uppfærir...",
   "wsl.onboarding.step.distro": "Veldu distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Athugar WSL...",
   "wsl.onboarding.restartRequired": "Windows þarf endurræsingu til að klára uppsetningu WSL.",
   "wsl.onboarding.ready": "WSL er tilbúinn.",

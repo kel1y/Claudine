@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Αρχείο",
   "desktop.menu.edit": "Επεξεργασία",
   "desktop.menu.view": "Προβολή",
@@ -449,7 +449,7 @@ export const dict = {
   "wsl.server.retryStart": "Επανάληψη έναρξης",
   "wsl.server.updating": "Ενημέρωση...",
   "wsl.onboarding.step.distro": "Επιλογή διανομής",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Έλεγχος WSL...",
   "wsl.onboarding.restartRequired": "Windows χρειάζεται επανεκκίνηση για να ολοκληρωθεί η εγκατάσταση του WSL.",
   "wsl.onboarding.ready": "WSL είναι έτοιμο.",

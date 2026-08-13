@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Файл",
   "desktop.menu.edit": "Редактиране",
   "desktop.menu.view": "Преглед",
@@ -450,7 +450,7 @@ export const dict = {
   "wsl.server.retryStart": "Повторен старт",
   "wsl.server.updating": "Актуализиране...",
   "wsl.onboarding.step.distro": "Изберете дистрибуция",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Проверява се WSL...",
   "wsl.onboarding.restartRequired": "Windows се нуждае от рестартиране, за да завърши инсталирането на WSL.",
   "wsl.onboarding.ready": "WSL е готов.",

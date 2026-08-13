@@ -1,5 +1,5 @@
 export const dict: Record<string, string> = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "ཡིག༌སྣོད",
   "desktop.menu.edit": "ཞུན༌དག",
   "desktop.menu.view": "བསམ༌འཆར",
@@ -452,7 +452,7 @@ export const dict: Record<string, string> = {
   "wsl.server.retryStart": "འགོ་བཙུགས་བསྐྱར་འབད་འབད་རྩོལ་བསྐྱེད།",
   "wsl.server.updating": "དུས་མཐུན་བཟོ་དོ།",
   "wsl.onboarding.step.distro": "བཀྲམ་སྤེལ་གདམ་ཁ་རྐྱབས།",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "ཞིབ་དཔྱད་འབད་དོ WSL...",
   "wsl.onboarding.restartRequired": "Windowsལུ་ WSLགཞི་བཙུགས་མཇུག་བསྡུ་ནིའི་དོན་ལུ་ ལོག་འགོ་བཙུགས་དགོཔ་ཨིན།",
   "wsl.onboarding.ready": "WSL གྲ་སྒྲིག་ཡོད།",

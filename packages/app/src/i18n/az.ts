@@ -1,5 +1,5 @@
 export const dict = {
-  "desktop.menu.app": "OpenCode",
+  "desktop.menu.app": "Incode",
   "desktop.menu.file": "Fayl",
   "desktop.menu.edit": "Redaktə",
   "desktop.menu.view": "Görünüş",
@@ -450,7 +450,7 @@ export const dict = {
   "wsl.server.retryStart": "Yenidən başlamağa cəhd edin",
   "wsl.server.updating": "Yenilənir...",
   "wsl.onboarding.step.distro": "Distribütiv seçin",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "WSL yoxlanılır...",
   "wsl.onboarding.restartRequired":
     "WSL-nin quraşdırılmasını başa çatdırmaq üçün Windows-un yenidən başlaması lazımdır.",

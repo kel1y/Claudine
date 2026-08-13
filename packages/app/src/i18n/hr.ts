@@ -1,7 +1,7 @@
 import { DESKTOP_NATIVE_KEYS } from "./desktop-native"
 
 const desktop = [
-  "OpenCode",
+  "Incode",
   "Datoteka",
   "Uredi",
   "Prikaz",
@@ -451,7 +451,7 @@ export const dict = {
   "wsl.server.retryStart": "Ponovi početak",
   "wsl.server.updating": "Ažuriranje...",
   "wsl.onboarding.step.distro": "Odaberite distro",
-  "wsl.onboarding.step.opencode": "OpenCode",
+  "wsl.onboarding.step.opencode": "Incode",
   "wsl.onboarding.checkingRuntime": "Provjera WSL...",
   "wsl.onboarding.restartRequired": "Windows treba ponovno pokretanje kako bi završio instalaciju WSL.",
   "wsl.onboarding.ready": "WSL je spreman.",
