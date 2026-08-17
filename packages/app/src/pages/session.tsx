@@ -39,7 +39,7 @@ import { Button } from "@opencode-ai/ui/button"
 import { showToast } from "@/utils/toast"
 import { base64Encode, checksum } from "@opencode-ai/core/util/encode"
 import { useLocation, useNavigate, useParams, useSearchParams } from "@solidjs/router"
-import { NewSessionView, SessionHeader } from "@/components/session"
+import { NewSessionView } from "@/components/session"
 import { ErrorPage } from "@/pages/error"
 import { CommentsProvider, useComments } from "@/context/comments"
 import { useCommand } from "@/context/command"
@@ -375,6 +375,8 @@ export default function Page() {
   const reviewFile = () => view().review.file()
   const sessionOwnership = createSessionOwnership(sessionKey)
   const newSessionDesign = createMemo(() => settings.general.newLayoutDesigns())
+  // Branded chat build keeps internal workspace panels out of the UI.
+  const showInternalPanels = () => false
 
   createEffect(() => {
     if (!prompt.ready()) return
@@ -447,15 +449,16 @@ export default function Page() {
 
   const isDesktop = createMediaQuery("(min-width: 768px)")
   const size = createSizing()
-  const desktopReviewOpen = createMemo(() => isDesktop() && view().reviewPanel.opened())
+  const desktopReviewOpen = createMemo(() => showInternalPanels() && isDesktop() && view().reviewPanel.opened())
   const desktopV2ReviewOpen = createMemo(() => newSessionDesign() && desktopReviewOpen() && !!params.id)
-  const terminalOpen = createMemo(() => view().terminal.opened())
+  const terminalOpen = createMemo(() => showInternalPanels() && view().terminal.opened())
   const desktopTerminalOpen = createMemo(() => isDesktop() && terminalOpen())
   const desktopInlineTerminalOnlyOpen = createMemo(
     () => newSessionDesign() && desktopTerminalOpen() && !desktopV2ReviewOpen(),
   )
   const desktopFileTreeOpen = createMemo(
     () =>
+      showInternalPanels() &&
       isDesktop() &&
       shouldShowFileTree({
         visible: settings.visibility.fileTree(),
@@ -2248,7 +2251,6 @@ export default function Page() {
 
   return (
     <SessionRouteFrame>
-      <SessionHeader />
       <div
         ref={panelRow}
         class="flex-1 min-h-0 flex flex-col md:flex-row"
@@ -2383,7 +2385,7 @@ export default function Page() {
         </Show>
       </div>
 
-      <Show when={!newSessionDesign()}>
+      <Show when={showInternalPanels() && !newSessionDesign()}>
         <TerminalPanel />
       </Show>
     </SessionRouteFrame>
