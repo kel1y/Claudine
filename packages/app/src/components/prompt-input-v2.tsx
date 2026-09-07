@@ -242,26 +242,7 @@ export function usePromptInputV2Controller(props: PromptInputV2ControllerProps):
       resource,
     })),
   )
-  const context = createMemo<PromptInputV2Suggestion[]>(() => [
-    ...references(),
-    ...props.controls.agents.available
-      .filter((agent) => !agent.hidden && agent.mode !== "primary")
-      .map((agent) => ({
-        id: `agent:${agent.name}`,
-        kind: "agent" as const,
-        label: `@${agent.name}`,
-        mention: { type: "agent" as const, name: agent.name, content: `@${agent.name}`, start: 0, end: 0 },
-      })),
-    ...resources(),
-    ...recent().map((path) => ({
-      id: `file:${path}`,
-      kind: "file" as const,
-      label: path,
-      path,
-      recent: true,
-      mention: { type: "file" as const, path, content: `@${path}`, start: 0, end: 0 },
-    })),
-  ])
+  const context = createMemo<PromptInputV2Suggestion[]>(() => [])
   const slashCommands = createMemo(() => [
     ...sync().data.command.map((item) => ({
       id: `custom.${item.name}`,
@@ -280,17 +261,7 @@ export function usePromptInputV2Controller(props: PromptInputV2ControllerProps):
         type: "builtin" as const,
       })),
   ])
-  const commands = createMemo<PromptInputV2Suggestion[]>(() =>
-    slashCommands().map((item) => ({
-      id: item.id,
-      kind: "command",
-      label: `/${item.trigger}`,
-      trigger: item.trigger,
-      title: item.title,
-      description: item.description,
-      keybind: command.keybindParts(item.id),
-    })),
-  )
+  const commands = createMemo<PromptInputV2Suggestion[]>(() => [])
   const variants = createMemo(() => ["default", ...props.controls.model.selection.variant.list()])
   const controller = createPromptInputV2Controller({
     store: () => prompt.capture().store,
@@ -308,14 +279,7 @@ export function usePromptInputV2Controller(props: PromptInputV2ControllerProps):
     },
     commands,
     context,
-    searchContextFiles: async (query) =>
-      (await files.searchFilesAndDirectories(query)).map((path) => ({
-        id: `file:${path}`,
-        kind: "file",
-        label: path,
-        path,
-        mention: { type: "file", path, content: `@${path}`, start: 0, end: 0 },
-      })),
+    searchContextFiles: async () => [],
     onContextRemove(item) {
       if (item?.commentID) comments.remove(item.path, item.commentID)
     },
@@ -376,32 +340,7 @@ export function usePromptInputV2Controller(props: PromptInputV2ControllerProps):
   })
   Object.defineProperty(controller, "model", { get: () => props.controls.model })
 
-  command.register("prompt-input", () => [
-    {
-      id: "file.attach",
-      title: language.t("prompt.action.attachFile"),
-      category: language.t("command.category.file"),
-      keybind: "mod+u",
-      disabled: controller.state.mode !== "normal",
-      onSelect: () => controller.attach(),
-    },
-    {
-      id: "prompt.mode.shell",
-      title: language.t("command.prompt.mode.shell"),
-      category: language.t("command.category.session"),
-      keybind: "mod+shift+x",
-      disabled: controller.state.mode === "shell",
-      onSelect: () => controller.dispatch({ type: "mode.shell" }),
-    },
-    {
-      id: "prompt.mode.normal",
-      title: language.t("command.prompt.mode.normal"),
-      category: language.t("command.category.session"),
-      keybind: "mod+shift+e",
-      disabled: controller.state.mode === "normal",
-      onSelect: () => controller.dispatch({ type: "mode.normal" }),
-    },
-  ])
+  command.register("prompt-input", () => [])
 
   createEffect(
     on(

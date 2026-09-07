@@ -924,25 +924,6 @@ export default function LegacyLayout(props: ParentProps) {
         onSelect: () => navigateProjectByOffset(1),
       },
       {
-        id: "provider.connect",
-        title: language.t("command.provider.connect"),
-        category: language.t("command.category.provider"),
-        onSelect: () => connectProvider(),
-      },
-      {
-        id: "server.switch",
-        title: language.t("command.server.switch"),
-        category: language.t("command.category.server"),
-        onSelect: () => openServer(),
-      },
-      {
-        id: "settings.open",
-        title: language.t("command.settings.open"),
-        category: language.t("command.category.settings"),
-        keybind: "mod+comma",
-        onSelect: () => openSettings(),
-      },
-      {
         id: "session.previous",
         title: language.t("command.session.previous"),
         category: language.t("command.category.session"),
@@ -1091,22 +1072,6 @@ export default function LegacyLayout(props: ParentProps) {
 
     return commands
   })
-
-  function connectProvider() {
-    const run = ++dialogRun
-    void import("@/components/dialog-connect-provider").then((x) => {
-      if (dialogDead || dialogRun !== run) return
-      void dialog.show(() => <x.DialogConnectProvider />)
-    })
-  }
-
-  function openServer() {
-    const run = ++dialogRun
-    void import("@/components/dialog-select-server").then((x) => {
-      if (dialogDead || dialogRun !== run) return
-      dialog.show(() => <x.DialogSelectServer />)
-    })
-  }
 
   function openSettings() {
     const run = ++dialogRun

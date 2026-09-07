@@ -348,11 +348,7 @@ export const { use: useCommand, provider: CommandProvider } = createSimpleContex
 
     const suspended = () => store.suspendCount > 0
 
-    const palette = createMemo(() => {
-      const config = settings.keybinds.get(PALETTE_ID) ?? DEFAULT_PALETTE_KEYBIND
-      const keybinds = parseKeybind(config)
-      return new Set(keybinds.map((kb) => signature(kb.key, kb.ctrl, kb.meta, kb.shift, kb.alt)))
-    })
+    const palette = createMemo(() => new Set<string>())
 
     const keymap = createMemo(() => {
       const map = new Map<string, CommandOption[]>()
