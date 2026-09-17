@@ -586,6 +586,7 @@ function Routes(props: { serverScoped?: JSX.Element }) {
 
   return (
     <>
+      <Route path="/admin" component={Admin} />
       <Route
         component={(routeProps) => (
           <LegacyServerLayout serverScoped={props.serverScoped}>{routeProps.children}</LegacyServerLayout>
@@ -599,7 +600,6 @@ function Routes(props: { serverScoped?: JSX.Element }) {
             </>
           }
         </Show>
-        <Route path="/admin" component={Admin} />
         <Route path="/:dir" component={DirectoryLayout}>
           <Route path="/" component={() => <Navigate href="session" />} />
           <Route path="/session/:id?" component={SessionRoute} />
