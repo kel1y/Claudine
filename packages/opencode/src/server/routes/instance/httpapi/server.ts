@@ -6,6 +6,7 @@ import { FSUtil } from "@opencode-ai/core/fs-util"
 import * as Observability from "@opencode-ai/core/observability"
 import { Account } from "@/account/account"
 import { Agent } from "@/agent/agent"
+import { Admin } from "@/server/admin"
 import { Auth } from "@/auth"
 import { BackgroundJob } from "@/background/job"
 import { Command } from "@/command"
@@ -81,6 +82,7 @@ import {
 } from "./middleware/authorization"
 import { EventApi } from "./groups/event"
 import { PtyConnectApi } from "./groups/pty"
+import { adminHandlers } from "./handlers/admin"
 import { eventHandlers } from "./handlers/event"
 import { configHandlers } from "./handlers/config"
 import { controlHandlers } from "./handlers/control"
@@ -139,7 +141,7 @@ const ptyConnectHttpApiAuthLayer = ptyConnectAuthorizationLayer.pipe(Layer.provi
 const serverHttpApiAuthLayer = serverAuthorizationLayer.pipe(Layer.provide(ServerAuth.Config.layer))
 const workspaceRoutingLive = workspaceRoutingLayer.pipe(Layer.provide(Socket.layerWebSocketConstructorGlobal))
 const rootApiRoutes = HttpApiBuilder.layer(RootHttpApi).pipe(
-  Layer.provide([controlHandlers, controlPlaneHandlers, globalHandlers]),
+  Layer.provide([adminHandlers, controlHandlers, controlPlaneHandlers, globalHandlers]),
   Layer.provide(schemaErrorLayer),
   Layer.provide(httpApiAuthLayer),
 )
@@ -214,6 +216,7 @@ const app = LayerNode.group([
   FSUtil.node,
   Database.node,
   Auth.node,
+  Admin.node,
   Account.node,
   Config.node,
   Env.node,

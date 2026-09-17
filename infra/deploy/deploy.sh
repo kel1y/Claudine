@@ -66,6 +66,18 @@ if ! docker compose version >/dev/null 2>&1; then
   exit 1
 fi
 
+if command -v dig >/dev/null 2>&1; then
+  public_ip="$(dig @1.1.1.1 +short "$OPENCODE_DOMAIN" A | tail -n 1 || true)"
+  if [[ -z "$public_ip" ]]; then
+    red "ERROR: $OPENCODE_DOMAIN does not resolve in public DNS."
+    echo "  Create a public A record pointing at this server before running Caddy."
+    if grep -qE "(^|[[:space:]])${OPENCODE_DOMAIN}([[:space:]]|$)" /etc/hosts 2>/dev/null; then
+      echo "  Note: this machine has an /etc/hosts override for $OPENCODE_DOMAIN, so it will work locally even while public DNS is broken."
+    fi
+    exit 1
+  fi
+fi
+
 bold "==> OpenCode deployment for ${OPENCODE_DOMAIN}"
 
 # --------------------------------------------------------------------------- #

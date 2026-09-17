@@ -69,6 +69,7 @@ import { NewHome } from "@/pages/home"
 import { LegacyHome } from "@/pages/home/legacy-home"
 
 const NewSession = lazy(() => import("@/pages/new-session"))
+const Admin = lazy(() => import("@/pages/admin"))
 
 const SessionRoute = () => {
   const settings = useSettings()
@@ -598,6 +599,7 @@ function Routes(props: { serverScoped?: JSX.Element }) {
             </>
           }
         </Show>
+        <Route path="/admin" component={Admin} />
         <Route path="/:dir" component={DirectoryLayout}>
           <Route path="/" component={() => <Navigate href="session" />} />
           <Route path="/session/:id?" component={SessionRoute} />

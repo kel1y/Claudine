@@ -28,6 +28,7 @@ import { WorkspaceApi } from "./groups/workspace"
 import { makeApi } from "@opencode-ai/protocol/api"
 import { LocationMiddleware } from "@opencode-ai/server/location"
 import { SessionLocationMiddleware } from "@opencode-ai/server/middleware/session-location"
+import { AdminApi } from "./groups/admin"
 import { GlobalApi } from "./groups/global"
 import { Authorization } from "./middleware/authorization"
 import { SchemaErrorMiddleware } from "./middleware/schema-error"
@@ -52,6 +53,7 @@ export const ServerApi = makeApi({
 })
 
 export const RootHttpApi = HttpApi.make("opencode-root")
+  .addHttpApi(AdminApi)
   .addHttpApi(ControlApi)
   .addHttpApi(ControlPlaneApi)
   .addHttpApi(GlobalApi)
