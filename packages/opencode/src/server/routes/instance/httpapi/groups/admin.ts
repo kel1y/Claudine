@@ -8,6 +8,12 @@ export const AdminCredentials = Schema.Struct({
   password: Schema.String,
 })
 
+export class AdminApiError extends Schema.ErrorClass<AdminApiError>()(
+  "AdminApiError",
+  { message: Schema.String },
+  { httpApiStatus: 400 },
+) {}
+
 const AdminStatus = Schema.Struct({
   configured: Schema.Boolean,
   authenticated: Schema.Boolean,
@@ -63,7 +69,7 @@ export const AdminApi = HttpApi.make("admin")
         HttpApiEndpoint.post("setup", `${root}/setup`, {
           payload: AdminCredentials,
           success: AdminStatus,
-          error: HttpApiError.BadRequest,
+          error: AdminApiError,
         }).annotateMerge(
           OpenApi.annotations({
             identifier: "admin.setup",
@@ -100,7 +106,7 @@ export const AdminApi = HttpApi.make("admin")
         HttpApiEndpoint.put("modelConfigUpdate", `${root}/model-config`, {
           payload: AdminUpdateInput,
           success: AdminModelConfig,
-          error: [HttpApiError.Unauthorized, HttpApiError.BadRequest],
+          error: [HttpApiError.Unauthorized, AdminApiError],
         }).annotateMerge(
           OpenApi.annotations({
             identifier: "admin.modelConfig.update",

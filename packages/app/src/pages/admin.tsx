@@ -10,7 +10,15 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: { "content-type": "application/json", ...(init?.headers ?? {}) },
   })
-  if (!response.ok) throw new Error(response.status === 401 ? "unauthorized" : await response.text())
+  if (!response.ok) {
+    const text = await response.text()
+    let message = response.status === 401 ? "unauthorized" : text
+    try {
+      const body = JSON.parse(text) as { message?: string; data?: { message?: string } }
+      message = body.data?.message ?? body.message ?? message
+    } catch {}
+    throw new Error(message)
+  }
   return response.json()
 }
 
@@ -145,7 +153,7 @@ export default function AdminPage() {
               placeholder="Password"
               autocomplete={view() === "setup" ? "new-password" : "current-password"}
             />
-            <button class="rounded-md bg-v2-background-bg-inverse px-3 py-2 text-v2-text-text-on-accent" disabled={busy()}>
+            <button class="rounded-md bg-v2-background-bg-inverse px-3 py-2 text-v2-background-bg-deep" disabled={busy()}>
               {view() === "setup" ? "Create admin" : "Sign in"}
             </button>
           </form>
@@ -212,7 +220,7 @@ export default function AdminPage() {
               placeholder="Models, one per line"
             />
 
-            <button class="rounded-md bg-v2-background-bg-inverse px-3 py-2 text-v2-text-text-on-accent" disabled={busy()}>
+            <button class="rounded-md bg-v2-background-bg-inverse px-3 py-2 text-v2-background-bg-deep" disabled={busy()}>
               Save
             </button>
           </form>

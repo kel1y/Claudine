@@ -8,7 +8,7 @@ import { Effect } from "effect"
 import { HttpEffect, HttpServerRequest, HttpServerResponse } from "effect/unstable/http"
 import { HttpApiBuilder, HttpApiError } from "effect/unstable/httpapi"
 import { RootHttpApi } from "../api"
-import type { AdminProviderInput, AdminUpdateInput } from "../groups/admin"
+import { AdminApiError, type AdminProviderInput, type AdminUpdateInput } from "../groups/admin"
 
 const cookieName = "incode_admin"
 const sessionMaxAge = 60 * 60 * 24 * 14
@@ -104,6 +104,10 @@ function validateProvider(input: AdminProviderInput) {
   })()
 }
 
+const asAdminError = Effect.mapError(
+  (error: unknown) => new AdminApiError({ message: error instanceof Error ? error.message : String(error) }),
+)
+
 function applyProviderUpdate(current: ConfigV1.Info, input: AdminUpdateInput, validated: { baseURL?: string; models: string[] }) {
   const next: ConfigV1.Info = { ...current }
   if (input.model !== undefined) next.model = input.model || undefined
@@ -185,7 +189,10 @@ export const adminHandlers = HttpApiBuilder.group(RootHttpApi, "admin", (handler
       .handle("setup", (ctx: { payload: Credentials }) =>
         Effect.gen(function* () {
           const request = yield* HttpServerRequest.HttpServerRequest
-          const token = yield* admin.setup(ctx.payload).pipe(Effect.mapError(() => new HttpApiError.BadRequest({})))
+          const token = yield* admin.setup(ctx.payload).pipe(
+            Effect.tapError((error) => Effect.logError("admin setup failed", { error: String(error) })),
+            asAdminError,
+          )
           yield* setSessionCookie(token, request)
           return yield* admin.status(token)
         }),
@@ -218,11 +225,9 @@ export const adminHandlers = HttpApiBuilder.group(RootHttpApi, "admin", (handler
           yield* requireAdmin()
           const cfg = yield* config.getGlobal()
           const validated = yield* (ctx.payload.provider ? validateProvider(ctx.payload.provider) : Effect.succeed({ models: [] })).pipe(
-            Effect.mapError(() => new HttpApiError.BadRequest({})),
+            asAdminError,
           )
-          const result = yield* config.updateGlobal(applyProviderUpdate(cfg, ctx.payload, validated)).pipe(
-            Effect.mapError(() => new HttpApiError.BadRequest({})),
-          )
+          const result = yield* config.updateGlobal(applyProviderUpdate(cfg, ctx.payload, validated)).pipe(asAdminError)
           if (result.changed) bridge.fork(disposeAllInstancesAndEmitGlobalDisposed({ swallowErrors: true }))
           return yield* current()
         }),
