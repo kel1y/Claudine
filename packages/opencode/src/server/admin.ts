@@ -32,10 +32,18 @@ export interface Interface {
 
 export class Service extends Context.Service<Service, Interface>()("@opencode/AdminAuth") {}
 
+async function readStored() {
+  try {
+    const text = await fs.readFile(file, "utf8")
+    if (!text) return
+    return Schema.decodeUnknownSync(Stored)(JSON.parse(text))
+  } catch {
+    return
+  }
+}
+
 const read = Effect.fnUntraced(function* () {
-  const text = yield* Effect.promise(() => fs.readFile(file, "utf8").catch(() => undefined))
-  if (!text) return
-  return yield* Effect.try(() => Schema.decodeUnknownSync(Stored)(JSON.parse(text))).pipe(Effect.catch(() => Effect.succeed(undefined)))
+  return yield* Effect.promise(() => readStored())
 })
 
 const write = Effect.fnUntraced(function* (value: Stored) {
