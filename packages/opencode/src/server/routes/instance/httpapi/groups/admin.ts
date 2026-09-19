@@ -8,11 +8,6 @@ export const AdminCredentials = Schema.Struct({
   password: Schema.String,
 })
 
-export class AdminApiError extends Schema.ErrorClass<AdminApiError>()(
-  "AdminApiError",
-  { message: Schema.String },
-  { httpApiStatus: 400 },
-) {}
 
 const AdminStatus = Schema.Struct({
   configured: Schema.Boolean,
@@ -69,7 +64,7 @@ export const AdminApi = HttpApi.make("admin")
         HttpApiEndpoint.post("setup", `${root}/setup`, {
           payload: AdminCredentials,
           success: AdminStatus,
-          error: AdminApiError,
+          error: HttpApiError.BadRequest,
         }).annotateMerge(
           OpenApi.annotations({
             identifier: "admin.setup",
@@ -79,7 +74,7 @@ export const AdminApi = HttpApi.make("admin")
         HttpApiEndpoint.post("login", `${root}/login`, {
           payload: AdminCredentials,
           success: AdminStatus,
-          error: HttpApiError.Unauthorized,
+          error: HttpApiError.UnauthorizedNoContent,
         }).annotateMerge(
           OpenApi.annotations({
             identifier: "admin.login",
@@ -88,6 +83,7 @@ export const AdminApi = HttpApi.make("admin")
         ),
         HttpApiEndpoint.post("logout", `${root}/logout`, {
           success: AdminStatus,
+          error: HttpApiError.UnauthorizedNoContent,
         }).annotateMerge(
           OpenApi.annotations({
             identifier: "admin.logout",
@@ -96,7 +92,7 @@ export const AdminApi = HttpApi.make("admin")
         ),
         HttpApiEndpoint.get("modelConfig", `${root}/model-config`, {
           success: AdminModelConfig,
-          error: HttpApiError.Unauthorized,
+          error: HttpApiError.UnauthorizedNoContent,
         }).annotateMerge(
           OpenApi.annotations({
             identifier: "admin.modelConfig.get",
@@ -106,7 +102,7 @@ export const AdminApi = HttpApi.make("admin")
         HttpApiEndpoint.put("modelConfigUpdate", `${root}/model-config`, {
           payload: AdminUpdateInput,
           success: AdminModelConfig,
-          error: [HttpApiError.Unauthorized, AdminApiError],
+          error: [HttpApiError.UnauthorizedNoContent, HttpApiError.BadRequest],
         }).annotateMerge(
           OpenApi.annotations({
             identifier: "admin.modelConfig.update",

@@ -8,7 +8,7 @@ import { Effect } from "effect"
 import { HttpEffect, HttpServerRequest, HttpServerResponse } from "effect/unstable/http"
 import { HttpApiBuilder, HttpApiError } from "effect/unstable/httpapi"
 import { RootHttpApi } from "../api"
-import { AdminApiError, type AdminProviderInput, type AdminUpdateInput } from "../groups/admin"
+import type { AdminProviderInput, AdminUpdateInput } from "../groups/admin"
 
 const cookieName = "incode_admin"
 const sessionMaxAge = 60 * 60 * 24 * 14
@@ -104,9 +104,7 @@ function validateProvider(input: AdminProviderInput) {
   })()
 }
 
-const asAdminError = Effect.mapError(
-  (error: unknown) => new AdminApiError({ message: error instanceof Error ? error.message : String(error) }),
-)
+const asAdminError = Effect.mapError(() => new HttpApiError.BadRequest({}))
 
 function applyProviderUpdate(current: ConfigV1.Info, input: AdminUpdateInput, validated: { baseURL?: string; models: string[] }) {
   const next: ConfigV1.Info = { ...current }
