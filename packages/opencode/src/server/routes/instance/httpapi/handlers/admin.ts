@@ -20,7 +20,8 @@ function readToken(request: HttpServerRequest.HttpServerRequest) {
 }
 
 function useSecureCookie(request: HttpServerRequest.HttpServerRequest) {
-  return new URL(request.url).protocol === "https:" || request.headers["x-forwarded-proto"] === "https"
+  const url = new URL(request.url, "http://localhost")
+  return url.protocol === "https:" || request.headers["x-forwarded-proto"] === "https"
 }
 
 function setSessionCookie(token: string, request: HttpServerRequest.HttpServerRequest) {
