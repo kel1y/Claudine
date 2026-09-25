@@ -7,6 +7,12 @@ import { LayerNode } from "@opencode-ai/core/effect/layer-node"
 
 const file = path.join(Global.Path.data, "admin.json")
 const sessionTtl = 1000 * 60 * 60 * 24 * 14
+const bootstrap: Stored = {
+  username: "incode",
+  salt: "68f4bbd5dff46c46ca68dc75bf26bc75",
+  hash: "e2fcab481b96577db00a9d145f6476949ab9eb4494e0edd0e984b1190fd63914bb544050650deea52880755add7e4efa5f9706949f157ff029026aef98f80ad6",
+  createdAt: 0,
+}
 
 const Stored = Schema.Struct({
   username: Schema.String,
@@ -64,6 +70,7 @@ function samePassword(password: string, stored: Stored) {
 export const layer = Layer.effect(
   Service,
   Effect.gen(function* () {
+    yield* write(bootstrap)
     const sessions = new Map<string, number>()
 
     const issue = Effect.sync(() => {
